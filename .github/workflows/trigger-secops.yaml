@@ -18,15 +18,4 @@ jobs:
           echo "Application Branch: ${{ github.event.client_payload.branch }}"
           echo "Application Commit SHA: ${{ github.event.client_payload.commit_sha }}"
 
-      - name: Checkout Exact Application Commit
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.event.client_payload.repository }}
-          ref: ${{ github.event.client_payload.commit_sha }}
-          path: application
-
-      - name: Verify Checked Out Commit
-        run: |
-          echo "Application Source Successfully checked out"
-          echo "Checked Out Commit SHA:"
-          git -C application rev-parse HEAD
+    
